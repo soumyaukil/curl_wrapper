@@ -16,7 +16,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # Defining the name of the executable.
 set(EXE_FILE_NAME "${PROJECT_NAME}_v${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_BUILD}${TARGET_POSTFIX}")
 
-
+# Json library
 include(ExternalProject)
 ExternalProject_Add(jsonlib
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/jsonlibinstall
@@ -27,6 +27,7 @@ ExternalProject_Add(jsonlib
     INSTALL_COMMAND ""
 )
 
+# sha256 library
 ExternalProject_Add(sha256lib
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/sha256libinstall
     GIT_REPOSITORY "https://github.com/JusticeRage/hash-library.git"
@@ -42,6 +43,9 @@ set(SHA256Lib_LIBRARIES ${CMAKE_CURRENT_BINARY_DIR}/sha256libinstall/libhash-lib
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/jsonlibinstall/src/jsonlib")
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/sha256libinstall")
 include_directories(include)
+
+# install directory for the project, where binary would be created
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/install/")
 
 FILE(GLOB SRC "src/*.C")
 FILE(GLOB BIN "bin/*.C")
