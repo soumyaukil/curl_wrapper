@@ -40,7 +40,15 @@ size_t HttpClient::WriteCallback(char * buffer, size_t size, size_t nitems, std:
 
 std::string HttpClient::doGET(const char *url, KeyValueMap &headers)
 {
-  std::string responseString;
+  curl_slist *headerList = NULL;
+  std::string postFields, responseString;
+
+  for(KeyValueMap::iterator it = headers.begin();it != headers.end();++it)
+  {
+    std::string header = it->first + ": " + it->second;
+    headerList = curl_slist_append(headerList, header.data());
+  }
+  setOption(CURLOPT_HTTPHEADER, headerList);
   setOption(CURLOPT_URL, url);
   setOption(CURLOPT_WRITEDATA, &responseString);
   CURLcode responseCode = curl_easy_perform(curl);
