@@ -18,5 +18,5 @@
 * Once building is successful, you go back to source code folder once again. Do ```cd ..```. You will see there is one ```install``` dirctory 
 has been created.
 * Go to ```install``` directory. You will see one binary ```pencildata_v1.2.0``` present there.
-* If you jwant to run ```./pencildata_v1.2.0```, you would need to provide ```username```, ```password``` and ```filename``` which will be hashed.
-* To run ```pencildata_v1.2.0```, you need to run this command: ```./pencildata_v1.2.0 <username> <password> <filename>```
+* If you jwant to run ```./pencildata_v1.2.0```, you would need to provide ```username```, ```password``` and ```filepath``` which will be hashed.
+* To run ```pencildata_v1.2.0```, you need to run this command: ```./pencildata_v1.2.0 <username> <password> <filepath>```
