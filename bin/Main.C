@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 4)
   {
-    std::cout << "[USAGE] " << argv[0] << " <username> <password> <filename>" << std::endl;
+    std::cout << "[USAGE] " << argv[0] << " <username> <password> <filepath>" << std::endl;
     return -1;
   }
   std::cout << "***Start of pencildata api testing***" << std::endl;
